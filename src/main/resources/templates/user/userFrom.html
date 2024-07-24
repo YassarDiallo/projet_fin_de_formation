@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>        
+        <!-- META SECTION -->
+        <title>Joli Admin - Responsive Bootstrap Admin Template</title>            
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Optionnel: jQuery et Bootstrap JS pour les fonctionnalités supplémentaires -->
+
+
+        <!-- END META SECTION -->
+        
+        <!-- CSS INCLUDE -->        
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+        <!-- EOF CSS INCLUDE -->                  
+    </head>
+    <body>
+        <!-- START PAGE CONTAINER -->
+
+        <div class="container d-flex justify-content-center">
+            <!-- START JQUERY VALIDATION PLUGIN -->
+            <div class="block">
+                <form th:action="@{/save}" th:object="${user}" method="POST" id="jvalidate" role="form" class="form-horizontal" action="javascript:alert('Form #validate2 submited');">
+                    <div class="panel-body">
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <input type="text" th:field="*{firtName}" class="form-control" placeholder="Nom" name="nom" />
+                                <span class="help-block">min size = 2, max size = 8</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <input type="text" th:field="*{lastName}" class="form-control" name="prenom" id="password2" placeholder="Prenom"/>
+                                <span class="help-block">min size = 5, max size = 10</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <input type="email" th:href="*{email}" value="" name="email" class="form-control"/>
+                                <span class="help-block">required email</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <input type="password" th:href="*{password}" class="form-control" name="password" placeholder="Password"/>
+                                <span class="help-block">min size = 18, max size = 100</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-5">
+                                <input type="password" th:href="*{passwordConf}" class="form-control" name="passwordConf" placeholder="Confirmation du password"/>
+                                <span class="help-block">required same value as Password</span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-9 offset-md-3">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END JQUERY VALIDATION PLUGIN -->
+            </div>
+        </div>
+
+        <!-- START PLUGINS -->
+        <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+        <!-- END PLUGINS -->
+
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <!-- THIS PAGE PLUGINS -->
+        <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+        <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+        
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>        
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>        
+
+        <script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+        <script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>        
+
+        <script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>                
+
+        <script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
+        <!-- END THIS PAGE PLUGINS -->               
+
+
+        <!-- END TEMPLATE -->
+        
+        <script type="text/javascript">
+            var jvalidate = $("#jvalidate").validate({
+                ignore: [],
+                rules: {                                            
+                        nom: {
+                                required: true,
+                                minlength: 2,
+                                maxlength: 8
+                        },
+                        password: {
+                                required: true,
+                                minlength: 5,
+                                maxlength: 10
+                        },
+                        're-password': {
+                                required: true,
+                                minlength: 5,
+                                maxlength: 10,
+                                equalTo: "#password"
+                        },
+                        prenom: {
+                                required: true,
+                                min: 18,
+                                max: 100
+                        },
+                        email: {
+                                required: true,
+                                email: true
+                        },
+                        date: {
+                                required: true,
+                                date: true
+                        },
+                        credit: {
+                                required: true,
+                                creditcard: true
+                        },
+                        site: {
+                                required: true,
+                                url: true
+                        }
+                    }                                        
+                });                                    
+
+        </script>
+        
+    <!-- END SCRIPTS -->          
+        
+    </body>
+</html>
+
+
+
+
+
+

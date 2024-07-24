@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+	 integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<h1 class="text-center">Ajout d'un utilisateur</h1>
+		<div class="shadow-lg p-3 mb-5 bg-body rounded my-5">
+			<form id="jvalidate" role="form" class="form-horizontal" action="javascript:alert('Form #validate2 submited');">
+				<div class="panel-body">
+					<div class="form-group">
+						<label class="col-md-3 control-label">Login:</label>
+						<div class="col-md-9">
+							<input type="text" class="form-control" name="login"/>
+							<span class="help-block">min size = 2, max size = 8</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">Password:</label>
+						<div class="col-md-9">
+							<input type="password" class="form-control" name="password" id="password2"/>
+							<span class="help-block">min size = 5, max size = 10</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">Confirm Password:</label>
+						<div class="col-md-9">
+							<input type="password" class="form-control" name="re-password"/>
+							<span class="help-block">required same value as Password</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">E-mail:</label>
+						<div class="col-md-9">
+							<input type="text" value="" name="email" class="form-control"/>
+							<span class="help-block">required email</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">Age:</label>
+						<div class="col-md-9">
+							<input type="text" class="form-control" name="age"/>
+							<span class="help-block">min size = 18, max size = 100</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">Date of birth:</label>
+						<div class="col-md-9">
+							<input type="text" class="form-control datepicker" name="date"/>
+							<span class="help-block">required date</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">Credit card:</label>
+						<div class="col-md-9">
+							<input type="text" class="form-control" name="credit"/>
+							<span class="help-block">required credit card</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-3 control-label">Site:</label>
+						<div class="col-md-9">
+							<input type="text" value="http://" name="site" class="form-control"/>
+							<span class="help-block">required url</span>
+						</div>
+					</div>
+					<div class="btn-group pull-right">
+						<button class="btn btn-primary" type="button" onClick="jvalidate.resetForm();$('#gender').next('.bootstrap-select').removeClass('error').removeClass('valid')">Hide prompts</button>
+						<button class="btn btn-primary" type="submit">Submit</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		
+	</div>
+
+	<!-- START PLUGINS -->
+	<script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>
+	<!-- END PLUGINS -->
+
+	<!-- THIS PAGE PLUGINS -->
+	<script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
+	<script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
+
+	<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+	<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
+
+	<script type='text/javascript' src='js/plugins/validationengine/languages/jquery.validationEngine-en.js'></script>
+	<script type='text/javascript' src='js/plugins/validationengine/jquery.validationEngine.js'></script>
+
+	<script type='text/javascript' src='js/plugins/jquery-validation/jquery.validate.js'></script>
+
+	<script type='text/javascript' src='js/plugins/maskedinput/jquery.maskedinput.min.js'></script>
+	<!-- END THIS PAGE PLUGINS -->
+
+	<!-- START TEMPLATE -->
+	<script type="text/javascript" src="js/settings.js"></script>
+
+	<script type="text/javascript" src="js/plugins.js"></script>
+	<script type="text/javascript" src="js/actions.js"></script>
+	<!-- END TEMPLATE -->
+
+	<script type="text/javascript">
+		var jvalidate = $("#jvalidate").validate({
+			ignore: [],
+			rules: {
+				login: {
+					required: true,
+					minlength: 2,
+					maxlength: 8
+				},
+				password: {
+					required: true,
+					minlength: 5,
+					maxlength: 10
+				},
+				're-password': {
+					required: true,
+					minlength: 5,
+					maxlength: 10,
+					equalTo: "#password2"
+				},
+				age: {
+					required: true,
+					min: 18,
+					max: 100
+				},
+				email: {
+					required: true,
+					email: true
+				},
+				date: {
+					required: true,
+					date: true
+				},
+				credit: {
+					required: true,
+					creditcard: true
+				},
+				site: {
+					required: true,
+					url: true
+				}
+			}
+		});
+
+	</script>
+
+</body>
+</html>

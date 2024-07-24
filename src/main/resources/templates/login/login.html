@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="body-full-height">
+    <head>        
+        <!-- META SECTION -->
+        <title>Blog Notes</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <!-- END META SECTION -->
+        
+        <!-- CSS INCLUDE -->        
+        <link rel="stylesheet" type="text/css" id="theme" href="css/theme-default.css"/>
+        <!-- EOF CSS INCLUDE -->                                    
+    </head>
+    <body>
+        
+        <div class="login-container">
+            <div class="login-box animated fadeInDown">
+
+                <div class="login-body">
+                    <div class="login-title text-center">Se connecter</div>
+                    <form action="#"  method="POST" th:action="@{/connexion}" th:object="${user}" class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="text" class="form-control" th:field="*{username}" name="username" placeholder="E-mail">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <input type="password" class="form-control" th:field="*{password}" name="username" placeholder="Mot de passe">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-6">
+                                <a href="#" class="btn btn-link btn-block">Mot de passe oublié?</a>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-info btn-block" type="submit">Se connecter</button>
+                            </div>
+                        </div>
+                        <div class="login-subtitle">
+
+                        </div>
+                    </form>
+                    <a th:href="@{/inscription}">Créer un compte</a>
+                </div>
+            </div>
+            
+        </div>
+        
+    </body>
+</html>
+
+
+
+
+
+
